@@ -25,5 +25,16 @@
  * @returns {string} The letter grade or "INVALID"
  */
 export function calculateGrade(score, hasExtraCredit) {
-  // Your code here
+  if (typeof score !== "number" || score < 0 || score > 100) {
+    return "INVALID";
+  }
+  let main_score = score;
+  if (hasExtraCredit) {
+    main_score += 5;
+  }
+  if (main_score >= 90) return "A";
+  if (main_score >= 80) return "B";
+  if (main_score >= 70) return "C";
+  if (main_score >= 60) return "D";
+  return "F";
 }
